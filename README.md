@@ -115,6 +115,15 @@ The STAR tool requires that a set of gene annotations will be provided in
 GTF format. This file can be specified for the workflow with the `--gtf`
 flag.
 
+## Note on STAR versions
+
+Given the interest in using multiple versions of the STAR aligner, the
+workflow will automatically produce an index for each of two versions.
+The `STAR` index is set using an older version (`v2.6.1c`) and `STAR2`
+uses a newer version (`v2.7.7a`). To manually specify a specific version
+for either, use the `--star_tag` or `--star2_tag` flags to specify one
+of the tags [available from BioContainers](https://quay.io/repository/biocontainers/star?tab=tags).
+
 ## Getting help
 
 This workflow has been written by the Fred Hutch Data Core. For help with

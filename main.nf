@@ -28,10 +28,10 @@ params.bwa_repository = "quay.io/biocontainers/bwa"
 params.bwa_tag = "0.7.17--h5bf99c6_8"
 
 params.star_repository = "quay.io/biocontainers/star"
-params.star_tag = "2.7.9a--h9ee0642_0"
+params.star_tag = "2.6.1d--h9ee0642_1"
 
 params.star2_repository = "quay.io/biocontainers/star"
-params.star2_tag = "2.7.9a--h9ee0642_0"
+params.star2_tag = "2.7.7a--0"
 
 
 
