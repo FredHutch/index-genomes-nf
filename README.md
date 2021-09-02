@@ -1,6 +1,8 @@
 # Index Genomes (Nextflow)
 Generate a comprehensive set of indexes for a single reference genome
 
+![index-genomes-nf](https://github.com/FredHutch/index-genomes-nf/actions/workflows/test.yaml/badge.svg)
+
 ## What is a genome index?
 
 For many different applications in bioinformatic analysis of genome-associated
