@@ -73,6 +73,16 @@ def helpMessage() {
       --cpus                Number of CPUs to use for each process (default: 1)
       --ram_gb              Amount of RAM (GB) to use for each process (default: 4)
 
+    Default Software Versions:
+
+        bismark: ${params.bismark_tag}
+        blast: ${params.blast_tag}
+        bowtie2: ${params.bowtie2_tag}
+        bowtie: ${params.bowtie_tag}
+        bwa: ${params.bwa_tag}
+        star: ${params.star_tag}
+        star2: ${params.star2_tag}
+
     """.stripIndent()
 }
 
