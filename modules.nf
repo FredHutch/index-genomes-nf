@@ -3,7 +3,7 @@ process bismark {
     container "${params.container__bismark}"
     cpus params.cpus
     memory "${params.ram_gb} GB"
-    publishDir "${params.output}/bismark/", mode: "copy", overwrite: true
+    publishDir "${params.output}/BismarkIndex/", mode: "copy", overwrite: true
 
     input:
         file "input.fasta.gz"
@@ -27,7 +27,7 @@ process blast {
     container "${params.container__blast}"
     cpus params.cpus
     memory "${params.ram_gb} GB"
-    publishDir "${params.output}/blast/", mode: "copy", overwrite: true
+    publishDir "${params.output}/BlastDB/", mode: "copy", overwrite: true
 
     input:
         file "input.fasta.gz"
@@ -55,7 +55,7 @@ process bowtie2 {
     container "${params.container__bowtie2}"
     cpus params.cpus
     memory "${params.ram_gb} GB"
-    publishDir "${params.output}/bowtie2/", mode: "copy", overwrite: true
+    publishDir "${params.output}/Bowtie2Index/", mode: "copy", overwrite: true
 
     input:
         file "input.fasta.gz"
@@ -78,7 +78,7 @@ process bowtie {
     container "${params.container__bowtie}"
     cpus params.cpus
     memory "${params.ram_gb} GB"
-    publishDir "${params.output}/bowtie/", mode: "copy", overwrite: true
+    publishDir "${params.output}/BowtieIndex/", mode: "copy", overwrite: true
 
     input:
         file genome_fasta
@@ -101,7 +101,7 @@ process bwa {
     container "${params.container__bwa}"
     cpus params.cpus
     memory "${params.ram_gb} GB"
-    publishDir "${params.output}/bwa/", mode: "copy", overwrite: true
+    publishDir "${params.output}/BWAIndex/", mode: "copy", overwrite: true
 
     input:
         file genome_fasta
@@ -123,7 +123,7 @@ process star {
     container "${params.container__star}"
     cpus params.cpus
     memory "${params.ram_gb} GB"
-    publishDir "${params.output}/star/", mode: "copy", overwrite: true
+    publishDir "${params.output}/STARIndex/", mode: "copy", overwrite: true
 
     input:
         file "input.fasta.gz"
@@ -161,7 +161,7 @@ process star2 {
     container "${params.container__star2}"
     cpus params.cpus
     memory "${params.ram_gb} GB"
-    publishDir "${params.output}/star2/", mode: "copy", overwrite: true
+    publishDir "${params.output}/STAR2Index/", mode: "copy", overwrite: true
 
     input:
         file "input.fasta.gz"
