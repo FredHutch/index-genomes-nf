@@ -56,14 +56,12 @@ Once you have Nextflow set up appropriately, this workflow can be run with
 a command like:
 
 ```#!/bin/bash
-
 nextflow run FredHutch/index-genomes-nf --input input.fasta.gz --output output_folder --gtf input.gtf.gz
 ```
 
 For a complete set of documentation on workflow usage, please run:
 
 ```#!/bin/bash
-
 nextflow run FredHutch/index-genomes-nf --help
 ```
 
