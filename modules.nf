@@ -17,7 +17,9 @@ set -e
 
 ls -lahtr
 
-bismark_genome_preparation --verbose ./ 2>&1 > bismark.log
+bismark_genome_preparation \
+    --verbose ./ \
+    2>&1 > bismark.index.log
 """
 }
 
@@ -40,7 +42,10 @@ set -e
 # Decompress the input
 gunzip -c input.fasta.gz > input.fasta
 
-makeblastdb -in input.fasta -dbtype nucl
+makeblastdb \
+    -in input.fasta \
+    -dbtype nucl \
+    2>&1 > BLAST.index.log
 """
 }
 
@@ -60,7 +65,10 @@ process bowtie2 {
 
 set -e
 
-bowtie2-build input.fasta.gz index
+bowtie2-build \
+    input.fasta.gz \
+    index \
+    2>&1 > bowtie2.index.log
 """
 }
 
@@ -80,7 +88,10 @@ process bowtie {
 
 set -e
 
-bowtie-build "${genome_fasta}" index
+bowtie-build \
+    "${genome_fasta}" \
+    index \
+    2>&1 > bowtie.index.log
 """
 }
 
@@ -100,7 +111,9 @@ process bwa {
 
 set -e
 
-bwa index "${genome_fasta}"
+bwa index \
+    "${genome_fasta}" \
+    2>&1 > BWA.index.log
 """
 }
 
@@ -132,7 +145,8 @@ STAR \
     --runThreadN ${params.cpus} \
     --genomeDir output/ \
     --genomeFastaFiles input/input.fasta \
-    --sjdbGTFfile input/input.gtf
+    --sjdbGTFfile input/input.gtf \
+    2>&1 > STAR.index.log
 
 """
 }
@@ -165,7 +179,8 @@ STAR \
     --runThreadN ${params.cpus} \
     --genomeDir output/ \
     --genomeFastaFiles input/input.fasta \
-    --sjdbGTFfile input/input.gtf
+    --sjdbGTFfile input/input.gtf \
+    2>&1 > STAR.index.log
 
 """
 }
