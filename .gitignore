@@ -4,3 +4,4 @@
 .nextflow
 test_output/
 work/
+.DS_Store

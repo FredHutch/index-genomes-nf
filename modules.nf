@@ -46,6 +46,8 @@ makeblastdb \
     -in input.fasta \
     -dbtype nucl \
     2>&1 > BLAST.index.log
+
+rm input.fasta
 """
 }
 
@@ -124,29 +126,33 @@ process star {
     publishDir "${params.output}/star/", mode: "copy", overwrite: true
 
     input:
-        file "input/input.fasta.gz"
-        file "input/input.gtf.gz"
+        file "input.fasta.gz"
+        file "input.gtf.gz"
 
     output:
-        file "output/*"
+        file "*"
 
 """#!/bin/bash
 
 set -e
 
 # Decompress the reference
-gunzip -c input/input.fasta.gz > input/input.fasta
-gunzip -c input/input.gtf.gz > input/input.gtf
+gunzip -c input.fasta.gz > input.fasta
+gunzip -c input.gtf.gz > input.gtf
 
 mkdir output
 
 STAR \
     --runMode genomeGenerate \
     --runThreadN ${params.cpus} \
-    --genomeDir output/ \
-    --genomeFastaFiles input/input.fasta \
-    --sjdbGTFfile input/input.gtf \
+    --genomeDir ./ \
+    --genomeFastaFiles input.fasta \
+    --sjdbGTFfile input.gtf \
     2>&1 > STAR.index.log
+
+# Clean up the temporary decompressed files
+rm input.fasta
+rm input.gtf
 
 """
 }
@@ -158,29 +164,33 @@ process star2 {
     publishDir "${params.output}/star2/", mode: "copy", overwrite: true
 
     input:
-        file "input/input.fasta.gz"
-        file "input/input.gtf.gz"
+        file "input.fasta.gz"
+        file "input.gtf.gz"
 
     output:
-        file "output/*"
+        file "*"
 
 """#!/bin/bash
 
 set -e
 
 # Decompress the reference
-gunzip -c input/input.fasta.gz > input/input.fasta
-gunzip -c input/input.gtf.gz > input/input.gtf
+gunzip -c input.fasta.gz > input.fasta
+gunzip -c input.gtf.gz > input.gtf
 
 mkdir output
 
 STAR \
     --runMode genomeGenerate \
     --runThreadN ${params.cpus} \
-    --genomeDir output/ \
-    --genomeFastaFiles input/input.fasta \
-    --sjdbGTFfile input/input.gtf \
+    --genomeDir ./ \
+    --genomeFastaFiles input.fasta \
+    --sjdbGTFfile input.gtf \
     2>&1 > STAR.index.log
+
+# Clean up the temporary decompressed files
+rm input.fasta
+rm input.gtf
 
 """
 }
