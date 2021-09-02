@@ -1,0 +1,6 @@
+
+*.code-workspace
+.nextflow.log*
+.nextflow
+test_output/
+work/
